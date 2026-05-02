@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCILINE | Real-Time ASCII Engine</title>
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <!-- Live Status Indicator -->
+    <div id="status" class="status">Ready</div>
+
+    <!-- Header Section -->
+    <h1>ASCILINE</h1>
+    <p class="subtitle">real-time ascii streaming engine</p>
+
+    <!-- Main Player Container -->
+    <div id="player-container">
+        <!-- Text-based rendering (B&W Mode) -->
+        <pre id="ascii-player"></pre>
+        
+        <!-- Canvas-based rendering (Color Modes) -->
+        <canvas id="ascii-canvas"></canvas>
+
+        <!-- Tap to Play Interaction Overlay -->
+        <div id="play-overlay">
+            <div class="play-btn"></div>
+            <span class="play-label">Tap to Play</span>
+        </div>
+    </div>
+
+    <!-- Core Engine Logic -->
+    <script src="/static/app.js"></script>
+</body>
+</html>

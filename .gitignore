@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Video files (too large for GitHub, user provides their own)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Environment & IDE
+.env
+.vscode/
+.idea/
+
+# Personal notes
+mynotes.txt
+
+# Old versions
+*-previous-ver-*

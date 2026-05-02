@@ -1,0 +1,167 @@
+/* 
+   ASCILINE ENGINE - Core Styles 
+   =========================================
+   Feel free to customize the look using the variables below.
+*/
+
+:root {
+    --bg-color: #050505;
+    --accent-color: #00ff41;
+    --accent-glow: rgba(0, 255, 65, 0.3);
+    --text-muted: rgba(255, 255, 255, 0.4);
+    --player-bg: #030303;
+    --font-main: 'Courier New', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: var(--font-main);
+    overflow: hidden;
+}
+
+/* ── UI ELEMENTS ─────────────────────────── */
+
+.status {
+    position: fixed;
+    top: 12px;
+    left: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    font-family: monospace;
+    z-index: 100;
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+/* ── PLAYER CONTAINER ─────────────────────────── */
+
+#player-container {
+    position: relative;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.06),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+    background: var(--player-bg);
+    cursor: pointer;
+    min-width: 500px;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+#player-container:hover {
+    border-color: rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+#ascii-player {
+    font-family: var(--font-main);
+    white-space: pre;
+    overflow: hidden;
+    font-size: 8px;
+    line-height: 8px;
+    letter-spacing: 0;
+    font-weight: bold;
+    contain: content;
+    display: none;
+}
+
+#ascii-canvas {
+    display: none;
+}
+
+/* ── OVERLAYS ───────────────────────── */
+
+#play-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 3, 3, 0.97);
+    z-index: 10;
+    transition: opacity 0.5s ease;
+    user-select: none;
+}
+
+#play-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.play-btn {
+    width: 72px;
+    height: 72px;
+    border: 2px solid rgba(0, 255, 65, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    animation: pulse-glow 2.5s ease-in-out infinite;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.08);
+    border-color: var(--accent-color);
+}
+
+.play-btn::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 22px;
+    border-color: transparent transparent transparent var(--accent-color);
+    margin-left: 4px;
+}
+
+.play-label {
+    color: rgba(0, 255, 65, 0.5);
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.3),
+                    0 0 15px rgba(0, 255, 65, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(0, 255, 65, 0),
+                    0 0 25px rgba(0, 255, 65, 0.12);
+    }
+}
